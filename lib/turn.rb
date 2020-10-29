@@ -1,30 +1,40 @@
-
- board = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
- 
-#board display
 def display_board(board)
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
     puts "-----------"
     puts " #{board[3]} | #{board[4]} | #{board[5]} "
-    puts "-----------"
+    puts  "-----------"
     puts " #{board[6]} | #{board[7]} | #{board[8]} "
-  end
-
-#position 
-def position_taken? (board, index)
-  if board[index] == "" || board[index] == " " || board[index] == nil
-    return false
-  else
-    return true
-  end
+    puts  "-----------"
 end
 
-#valid_move method
+def position_taken?(board, index)
+    if board[index] == " " || board[index] == nil || board[index] == ""
+        return false
+    else
+        return true
+    end        
+end
+
 def valid_move?(board, index)
-  index.between?(0,8) && !position_taken?(board,index)
-  end
+ index.between?(0,8) && !position_taken?(board, index) 
+end
 
-#move method
-  #def move(board, index, token)
+def input_to_index(user_input)
+    user_input.to_i - 1
+end
 
+def move(board, index, current_player = 'X')
+  board[index] = current_player
+end
 
+def turn(board)
+  puts "Please enter 1-9:"
+  user_input = gets.chomp
+  index = input_to_index(user_input)
+  if valid_move?(board, index) == true
+    move(board, index)
+    display_board(board)
+  else
+    turn(board)  
+  end  
+end
