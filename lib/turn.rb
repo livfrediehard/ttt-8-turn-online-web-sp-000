@@ -11,8 +11,13 @@ def display_board(board)
   end
 
 #position 
-
-
+def position_taken? (board, index)
+  if board[index] == "" || board[index] == " " || board[index] == nil
+    return false
+  else
+    return true
+  end
+end
 
 #valid_move method
 def valid_move?(board, index)
