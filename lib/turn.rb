@@ -1,3 +1,4 @@
+#board display
 def display_board
     puts " #{board[0]} | #{board[1]} | #{board[2]} "
     puts "-----------"
@@ -11,6 +12,7 @@ def valid_move?(board, index)
   index.between?(0,8) && !position_taken?(board,index)
   end
 
+#move method
   def move
 
   end
