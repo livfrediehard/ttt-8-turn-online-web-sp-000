@@ -16,6 +16,6 @@ def valid_move?(board, index)
   end
 
 #move method
-  def move(board, index, token)
+  #def move(board, index, token)
 
-  end
+
